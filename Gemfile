@@ -27,6 +27,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bourbon'
 gem 'neat'
 gem 'refills'
+gem 'faker'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
