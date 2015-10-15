@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151015184341) do
+ActiveRecord::Schema.define(version: 20151015190959) do
 
   create_table "categories", force: :cascade do |t|
     t.integer  "user_id"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20151015184341) do
   create_table "tasks", force: :cascade do |t|
     t.integer  "owner_task_id"
     t.integer  "user_id"
-    t.string   "name_string"
+    t.string   "name"
     t.text     "description"
     t.datetime "due_at"
     t.float    "position"
