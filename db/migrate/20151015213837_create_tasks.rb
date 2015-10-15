@@ -3,7 +3,7 @@ class CreateTasks < ActiveRecord::Migration
     create_table :tasks do |t|
       t.integer :owner_task_id
       t.integer :user_id
-      t.string :name_string
+      t.string :name
       t.text :description
       t.datetime :due_at
       t.float :position

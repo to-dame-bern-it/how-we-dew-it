@@ -3,9 +3,9 @@
 one:
   owner_task_id: 1
   user_id: 1
-  name_string: MyString
+  name: MyString
   description: MyText
-  due_at: 2015-10-15 14:42:03
+  due_at: 2015-10-15 17:38:37
   position: 1.5
   category_id: 1
   status_id: 1
@@ -13,9 +13,9 @@ one:
 two:
   owner_task_id: 1
   user_id: 1
-  name_string: MyString
+  name: MyString
   description: MyText
-  due_at: 2015-10-15 14:42:03
+  due_at: 2015-10-15 17:38:37
   position: 1.5
   category_id: 1
   status_id: 1
