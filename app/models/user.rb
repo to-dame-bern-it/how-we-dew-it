@@ -1,3 +1,3 @@
 class User < ActiveRecord::Base
-  has_many :tasks, depedent: :destroy
+  has_many :tasks, dependent: :destroy
 end
