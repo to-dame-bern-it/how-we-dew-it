@@ -5,3 +5,6 @@ deploy:
   app: to-dame-bern-it
   on:
     repo: to-dame-bern-it/how-we-dew-it
+branches:
+  only:
+    - master
