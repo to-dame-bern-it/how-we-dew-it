@@ -56,3 +56,5 @@ function toggleVideoVolume() {
   }
 }
 
+// var positionMath = parseInt($("li.flex-box.flex-box").prev().attr("data-pos"))+parseInt($("li.flex-box.flex-box").next().attr("data-pos"));
+// positionMath / 2
