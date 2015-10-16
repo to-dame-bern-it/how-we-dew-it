@@ -16,6 +16,7 @@
 //= require html.sortable.min
 //= require_tree .
 //= require tasks
+//= require flame
 
 $(function() {
   set_positions();
@@ -48,11 +49,19 @@ set_positions = function(){
 }
 
 function toggleVideoVolume() {
-  vid = $('#bgvid')
+  vid = $('#bgvid');
+  btn = $(".videoVolumeBtn").children("button");
   if(vid.prop('muted') == true){
     vid.prop('muted', false)
+    btn.text("Motivation Enabled");
+    btn.addClass('motivated');
+    btn.removeClass('unmotivated');
+    loop();
   } else {
     vid.prop('muted', true)
+    btn.text("Motivation Disabled");
+    btn.addClass('unmotivated');
+    btn.removeClass('motivated');
   }
 }
 

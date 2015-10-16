@@ -59,3 +59,34 @@ video#bgvid {
     background-size: cover;
 }
 
+.videoVolumeBtn {
+  position: fixed;
+  top: 1em;
+  right: 1em;
+  -webkit-box-shadow: -1px 4px 10px 1px rgba(0,0,0,0.25);
+  -moz-box-shadow: -1px 4px 10px 1px rgba(0,0,0,0.25);
+  box-shadow: -1px 4px 10px 1px rgba(0,0,0,0.25);
+  button {
+    border-radius: 0;
+  }
+}
+
+$motivated: #459B54;
+$unmotivated: #CA635B;
+
+.motivated {
+  background-color: $motivated;
+}
+
+.unmotivated {
+  background-color: $unmotivated;
+}
+
+.motivated:hover, .motivated:focus{
+  background-color: lighten($motivated, 10%);
+}
+
+.unmotivated:hover, .unmotivated:focus {
+  background-color: lighten($unmotivated, 10%);
+}
+
