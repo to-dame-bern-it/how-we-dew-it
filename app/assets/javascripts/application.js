@@ -15,35 +15,42 @@
 //= require turbolinks
 //= require html.sortable.min
 //= require_tree .
-
+//= require tasks
 
 $(function() {
-  $(".tasklist").sortable({
+  $('.tasklist').sortable();
+  set_positions();
+});
 
-  });
+ready = function(){
+  // call set_positions function
 
-  // $(".draggable").draggable({
-  //   connectToSortable: "#tasklist",
-  //   helper: "clone",
-  //   revert: "invalid"
-  // });
-
-  $(".draggable").disableSelection();
 
   $('.sortable').sortable().bind('sortupdate', function(e, ui) {
-      /*
+    updated_order = []
 
-      This event is triggered when the user stopped sorting and the DOM position has changed.
+    $('.task').each(function(i){
+        updated_order.push({ id: $(this).data("id"), position: i+1 });
+    });
 
-      ui.item contains the current dragged element.
-      ui.index contains the new index of the dragged element (considering only list items)
-      ui.oldindex contains the old index of the dragged element (considering only list items)
-      ui.elementIndex contains the new index of the dragged element (considering all items within sortable)
-      ui.oldElementIndex contains the old index of the dragged element (considering all items within sortable)
-      ui.startparent contains the element that the dragged item comes from
-      ui.endparent contains the element that the dragged item was added to (new parent)
-
-      */
+    // send the updated order via ajax
+    $.ajax({
+        type: "PUT",
+        url: '/tasks/sort',
+        data: { order: updated_order }
+    });
   });
-});
+
+  set_positions();
+}
+
+$(document).on('page:load', ready);
+
+set_positions = function(){
+    // loop through and give each task a data-pos
+    // attribute that holds its position in the DOM
+    $('.task').each(function(i){
+        $(this).attr("data-pos",i+1);
+    });
+}
 
