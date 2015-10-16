@@ -25,7 +25,6 @@ $(function() {
 ready = function(){
   // call set_positions function
 
-
   $('.sortable').sortable().bind('sortupdate', function(e, ui) {
     updated_order = []
 
@@ -47,10 +46,8 @@ ready = function(){
 $(document).on('page:load', ready);
 
 set_positions = function(){
-    // loop through and give each task a data-pos
-    // attribute that holds its position in the DOM
-    $('.task').each(function(i){
-        $(this).attr("data-pos",i+1);
-    });
+  $('.task').each(function(i){
+    $(this).attr("data-pos",i+1);
+  });
 }
 
