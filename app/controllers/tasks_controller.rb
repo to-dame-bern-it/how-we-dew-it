@@ -4,11 +4,16 @@ class TasksController < ApplicationController
   def sort
     #hits the database everytime
     params[:order].each do |key,value|
-      Activity.find(value[:id]).update_attribute(:priority, value[:position])
+      Task.find(value[:id]).update_attribute(:position, value[:position])
     end
     render :nothing => true
   end
-  
+
+  def complete
+  @task = Task.find(params[:id])
+  @task.update(completed: true)
+  end
+
   # GET /tasks
   def index
     @tasks = Task.all
