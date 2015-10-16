@@ -12,10 +12,12 @@
  *
  */
 
- @import "bourbon";
- @import "base/base";
- @import "neat";
- @import "refills/_textures";
+@import "bourbon";
+@import "base/base";
+@import "neat";
+@import "refills/textures";
+@import "refills/flex-boxes";
+@import "refills/flashes";
 
 $mdlogogreen: #013a19;
 $mdred: #fc363b;
@@ -25,29 +27,35 @@ $mdgreen: #499544;
 
 body {
   -webkit-font-smoothing: antialiased;
-  background-color: $mdlogogreen;
 }
 
-
-.texture {
-  $texture-top-background: lighten($mdlime, 1%);
-  $texture-bottom-background: darken($mdgreen, 10%);
-
-  .texture-normal {
-    // gradient color 1, gradient color 2, gradient angle, texture-number, 0=inverted or 1=normal
-    @include texture(180deg, $texture-top-background, $texture-bottom-background, 67, 1);
-  }
-
-  .texture-inverted {
-    // gradient color 1, gradient color 2, gradient angle, texture-number, 0=inverted or 1=normal
-    @include texture(180deg, $texture-top-background, $texture-bottom-background, 67, 0);
-  }
-}
 
 main {
   @include outer-container;
-  border-radius: 1em;
   padding: 0.25em 1em;
 }
 
+.sortable-placeholder {
+  border: 1px $mdlogogreen dashed;
+  height: 8em;
+  width: 100%;
+  display: block;
+  clear: both;
+  background-color: $mdred;
+}
+
+video#bgvid {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(polina.jpg) no-repeat;
+    background-size: cover;
+}
 

@@ -1,41 +1,12 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Listing Tasks</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Owner task</th>
-      <th>User</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Due at</th>
-      <th>Position</th>
-      <th>Category</th>
-      <th>Status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= task.owner_task_id %></td>
-        <td><%= task.user_id %></td>
-        <td><%= task.name %></td>
-        <td><%= task.description %></td>
-        <td><%= task.due_at %></td>
-        <td><%= task.position %></td>
-        <td><%= task.category_id %></td>
-        <td><%= task.status_id %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<video muted autoplay loop id="bgvid">
+  <source src="<%= asset_path("justdoit.webm") %>" type="video/webm">
+  <source src="<%= asset_path("justdoit.mp4") %>" type="video/mp4">
+</video>
+<h1>All Tasks</h1>
+  <ul class="flex-boxes tasklist">
+    <%= render @tasks %>
+  </ul>
 <br>
 
 <%= link_to 'New Task', new_task_path %>
