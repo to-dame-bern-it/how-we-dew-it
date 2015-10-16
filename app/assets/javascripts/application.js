@@ -16,7 +16,6 @@
 //= require html.sortable.min
 //= require_tree .
 //= require tasks
-//= require flame
 
 $(function() {
   set_positions();
