@@ -15,11 +15,11 @@
 //= require turbolinks
 //= require html.sortable.min
 //= require_tree .
+//= require tasks
 
 $(function() {
-  $('.tasklist').sortable();
   set_positions();
-
+  $('.tasklist').sortable();
 });
 
 ready = function(){
@@ -46,3 +46,13 @@ set_positions = function(){
     $(this).attr("data-pos",i+1);
   });
 }
+
+function toggleVideoVolume() {
+  vid = $('#bgvid')
+  if(vid.prop('muted') == true){
+    vid.prop('muted', false)
+  } else {
+    vid.prop('muted', true)
+  }
+}
+
