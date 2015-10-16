@@ -50,4 +50,3 @@ set_positions = function(){
     $(this).attr("data-pos",i+1);
   });
 }
-
