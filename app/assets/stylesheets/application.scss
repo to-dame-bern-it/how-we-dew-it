@@ -1,0 +1,53 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ */
+
+ @import "bourbon";
+ @import "base/base";
+ @import "neat";
+ @import "refills/_textures";
+
+$mdlogogreen: #013a19;
+$mdred: #fc363b;
+$mdlime: #e2e553;
+$mdgreen: #499544;
+
+
+body {
+  -webkit-font-smoothing: antialiased;
+  background-color: $mdlogogreen;
+}
+
+
+.texture {
+  $texture-top-background: lighten($mdlime, 1%);
+  $texture-bottom-background: darken($mdgreen, 10%);
+
+  .texture-normal {
+    // gradient color 1, gradient color 2, gradient angle, texture-number, 0=inverted or 1=normal
+    @include texture(180deg, $texture-top-background, $texture-bottom-background, 67, 1);
+  }
+
+  .texture-inverted {
+    // gradient color 1, gradient color 2, gradient angle, texture-number, 0=inverted or 1=normal
+    @include texture(180deg, $texture-top-background, $texture-bottom-background, 67, 0);
+  }
+}
+
+main {
+  @include outer-container;
+  border-radius: 1em;
+  padding: 0.25em 1em;
+}
+
+
