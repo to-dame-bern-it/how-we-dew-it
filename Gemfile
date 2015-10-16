@@ -28,6 +28,7 @@ gem 'bourbon'
 gem 'neat'
 gem 'refills'
 gem 'faker'
+gem 'font-awesome-rails'
 
 
 # Use Unicorn as the app server
