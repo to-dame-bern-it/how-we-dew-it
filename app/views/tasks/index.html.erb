@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
-<div>
-  <button onclick="toggleVideoVolume();">Motivation Mode</button>
+<div class="videoVolumeBtn">
+  <button class="unmotivated" onclick="toggleVideoVolume();">Motivation Disabled</button>
 </div>
 <video muted autoplay loop id="bgvid">
   <source src="<%= asset_path("justdoit.webm") %>" type="video/webm">
@@ -12,4 +12,4 @@
   </ul>
 <br>
 
-<%= link_to 'New Task', new_task_path %>
+<%= link_to 'New Task', class: "new-task" %>

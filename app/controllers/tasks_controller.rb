@@ -9,14 +9,10 @@ class TasksController < ApplicationController
     render :nothing => true
   end
 
-  def complete
-  @task = Task.find(params[:id])
-  @task.update(completed: true)
-  end
-
   # GET /tasks
   def index
     @tasks = Task.all
+    @task = Task.new
   end
 
   # GET /tasks/1

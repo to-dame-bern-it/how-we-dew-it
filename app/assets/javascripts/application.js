@@ -18,28 +18,27 @@
 //= require tasks
 
 $(function() {
-  set_positions();
-  $('.tasklist').sortable();
+  ready();
 });
 
+var ready, set_positions;
 ready = function(){
-  // call set_positions function
-  $('.sortable').sortable().bind('sortupdate', function(e, ui) {
+  set_positions();
+  $('.tasklist').sortable();
+  $('.tasklist').sortable().bind('sortupdate', function(e, ui) {
     updated_order = []
+    set_positions();
     $('.task').each(function(i){
-        updated_order.push({ id: $(this).data("id"), position: i+1 });
+      updated_order.push({ id: $(this).data("id"), position: i+1 });
     });
-    // send the updated order via ajax
     $.ajax({
-        type: "PUT",
-        url: '/tasks/sort',
-        data: { order: updated_order }
+      type: "PUT",
+      url: '/tasks/sort',
+      data: { order: updated_order }
     });
   });
   set_positions();
 }
-
-$(document).on('page:load', ready);
 
 set_positions = function(){
   $('.task').each(function(i){
@@ -48,13 +47,23 @@ set_positions = function(){
 }
 
 function toggleVideoVolume() {
-  vid = $('#bgvid')
+  vid = $('#bgvid');
+  btn = $(".videoVolumeBtn").children("button");
   if(vid.prop('muted') == true){
     vid.prop('muted', false)
+    btn.text("Motivation Enabled");
+    btn.addClass('motivated');
+    btn.removeClass('unmotivated');
   } else {
     vid.prop('muted', true)
+    btn.text("Motivation Disabled");
+    btn.addClass('unmotivated');
+    btn.removeClass('motivated');
   }
 }
 
 // var positionMath = parseInt($("li.flex-box.flex-box").prev().attr("data-pos"))+parseInt($("li.flex-box.flex-box").next().attr("data-pos"));
 // positionMath / 2
+function newTaskItem() {
+
+}
