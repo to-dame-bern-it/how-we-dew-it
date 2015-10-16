@@ -15,23 +15,20 @@
 //= require turbolinks
 //= require html.sortable.min
 //= require_tree .
-//= require tasks
 
 $(function() {
   $('.tasklist').sortable();
   set_positions();
+
 });
 
 ready = function(){
   // call set_positions function
-
   $('.sortable').sortable().bind('sortupdate', function(e, ui) {
     updated_order = []
-
     $('.task').each(function(i){
         updated_order.push({ id: $(this).data("id"), position: i+1 });
     });
-
     // send the updated order via ajax
     $.ajax({
         type: "PUT",
@@ -39,7 +36,6 @@ ready = function(){
         data: { order: updated_order }
     });
   });
-
   set_positions();
 }
 
