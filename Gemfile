@@ -35,8 +35,6 @@ gem 'font-awesome-rails'
 # gem 'unicorn'
 gem 'puma'
 
-gem 'rails-footnotes', '~> 4.0'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :production do
@@ -55,4 +53,7 @@ group :development do
   gem 'web-console', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'rails-footnotes', '~> 4.0'
+
 end

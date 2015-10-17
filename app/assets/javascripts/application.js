@@ -18,6 +18,8 @@
 //= require tasks
 //= require refills/dropdown
 
+
+
 $(function() {
   ready();
 });
@@ -43,6 +45,11 @@ ready = function(){
     });
   });
   set_positions();
+
+  $.ajax( "#editClick" ).mousedown(function() {
+
+      alert( "Just checking if this works." );
+  });
 }
 
 set_positions = function(){
@@ -77,5 +84,3 @@ var videos = {
   JimCarrey: "JimCarrey",
   ProveThemWrong: "ProveThemWrong",
 }
-
-
