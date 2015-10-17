@@ -43,9 +43,6 @@ end
 bernie = User.create!(name: "Bernie Mac", email: "bernie@caddy.com", password: "bernie")
 jackie = User.create!(name: "Jackie Chan", email: "jackie@stuntman.com", password: "jackie")
 
-bernie.save
-jackie.save
-
 
   # create_table "users", force: :cascade do |t|
   #   t.string   "email"
