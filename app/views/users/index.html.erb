@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+<p id="alert"><%= alert %></p>
+
+
+<h1>Listing Users</h1>
+
+
+<% @users.each do |user| %>
+  <h3><%= user.name %> | <%= user.email %></h3>
+      <th colspan="3"></th>
+  <tbody>
+      <tr>
+        <td><%= user.password %></td>
+        <td><%= link_to 'Info', user %></td>
+        <td><%= link_to 'Edit Info', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy Account', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  </tbody>
+
+  <p>
+  <th colspan="5"></th>
+  <% user.students.each do |student| %>
+  <tbody>
+    <tr>
+      <th>Name:</th>
+      <td><%= student.name %></td>
+      <th>Email:</th>
+      <td><%= student.email %></td>
+    <p>
+      <td><%= link_to 'Add Parent', new_parent_path %></td>
+      <td><%= link_to 'Add Grade', new_grade_path %></td>
+      <td><%= link_to 'Show', student %></td>
+      <td><%= link_to 'Edit', edit_student_path(student) %></td>
+      <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </p>
+    </tr>
+  </tbody>
+</p>
+  <br>
+  <% end %>
+  <p><%= link_to 'Add New Student to Class', new_student_path(user) %></p>
+<% end %>
+
+
+  <%= link_to 'New user', new_user_path %>| <%= link_to 'Logout', login_path, method: "delete" %>

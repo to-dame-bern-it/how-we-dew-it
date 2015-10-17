@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'login' => 'users#new'
+  resources :users
+
   root 'tasks#index'
   resources :tasks do
     put :sort, on: :collection
