@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :current_user, only: [:show, :edit, :update, :destroy]
   before_action :logged_in?
   #before_action :deny_access
 
@@ -41,19 +41,7 @@ class UsersController < ApplicationController
   end
 
   private
-    def set_user
-      @logged_in_user = User.find_by_id(session[:user_id])
-    end
-
     def user_params
       params.require(:user).permit(:name, :email, :password)
     end
-
-    def logged_in?
-      redirect_to login_path "Must be Logged in" unless session[:logged_in_user]
-    end
-
-    # def deny_access
-    #   redirect_to login_path, notice: "Access Denied" unless session[:logged_in_user]
-    # end
 end

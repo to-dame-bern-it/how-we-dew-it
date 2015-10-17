@@ -25,7 +25,7 @@ $(function() {
 });
 
 $(document).ready(function() {
-
+  $(".hideTasks").children("button").on("click", function() { toggleTaskListVisibility(); });
 });
 
 var ready, set_positions;
@@ -74,6 +74,22 @@ function toggleVideoVolume(off) {
   }
 }
 
+function toggleTaskListVisibility() {
+  var btn = $(event.target);
+
+  if(btn.text() == "Hide Tasks") {
+    btn.text("Show Tasks");
+    $("main").toggle();
+    btn.addClass('motivated');
+    btn.removeClass('unmotivated');
+  } else {
+    btn.text("Hide Tasks");
+    $("main").toggle();
+    btn.addClass('unmotivated');
+    btn.removeClass('motivated');
+  }
+}
+
 function newTaskItem() {
 
 }
@@ -83,4 +99,7 @@ var videos = {
   LesBrown: "LesBrown",
   JimCarrey: "JimCarrey",
   ProveThemWrong: "ProveThemWrong",
+  KidPresident: "KidPresident",
+  RockyBalboa: "RockyBalboa",
+  MattFoley: "MattFoley"
 }

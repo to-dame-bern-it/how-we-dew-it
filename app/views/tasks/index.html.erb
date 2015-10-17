@@ -1,29 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<div class="floatBtn">
-  <div class="dropdown">
-    <div class="dropdown-container">
-      <p class="dropdown-description">Motivation:</p>
-      <p class="dropdown-button">Just Do It</p>
-      <ul class="dropdown-menu dropdown-select">
-        <li>Just Do It</li>
-        <li>Les Brown</li>
-        <li>Jim Carrey</li>
-        <li>Prove Them Wrong</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="extraMotivation">
-    <button class="unmotivated" onclick="toggleVideoVolume();">Extra Motivation Disabled</button>
-  </div>
-</div>
 
 
-
-<video muted autoplay loop id="bgvid">
-  <source src="<%= asset_path("ShiaLabeouf.mp4") %>" type="video/mp4">
-</video>
 <% if @tasks.any? %>
   <h1>All Tasks</h1>
     <ul class="flex-boxes tasklist">

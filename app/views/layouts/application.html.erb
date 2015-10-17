@@ -7,8 +7,41 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <video muted autoplay loop id="bgvid">
+    <source src="<%= asset_path("ShiaLabeouf.mp4") %>" type="video/mp4">
+  </video>
+  <div class="floatBtns">
+
+    <div class="extraMotivation">
+      <button class="unmotivated" onclick="toggleVideoVolume();">Extra Motivation Disabled</button>
+    </div>
+
+    <div class="dropdown">
+      <div class="dropdown-container">
+        <p class="dropdown-description">Motivation:</p>
+        <p class="dropdown-button">Just Do It</p>
+        <ul class="dropdown-menu dropdown-select">
+          <li>Just Do It</li>
+          <li>Les Brown</li>
+          <li>Jim Carrey</li>
+          <li>Prove Them Wrong</li>
+          <li>Matt Foley</li>
+          <li>Rocky Balboa</li>
+          <li>Kid President</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hideTasks" style="float: left;">
+      <button class="unmotivated">Hide Tasks</button>
+    </div>
+
+  </div>
+
+
   <main>
     <%= yield %>
   </main>
+
 </body>
 </html>
