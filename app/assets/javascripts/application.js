@@ -16,9 +16,14 @@
 //= require html.sortable.min
 //= require_tree .
 //= require tasks
+//= require refills/dropdown
 
 $(function() {
   ready();
+});
+
+$(document).ready(function() {
+
 });
 
 var ready, set_positions;
@@ -46,24 +51,31 @@ set_positions = function(){
   });
 }
 
-function toggleVideoVolume() {
+function toggleVideoVolume(off) {
   vid = $('#bgvid');
-  btn = $(".videoVolumeBtn").children("button");
-  if(vid.prop('muted') == true){
-    vid.prop('muted', false)
-    btn.text("Motivation Enabled");
-    btn.addClass('motivated');
-    btn.removeClass('unmotivated');
-  } else {
+  btn = $(".extraMotivation").children("button");
+  if(vid.prop('muted') == false || off == true){
     vid.prop('muted', true)
-    btn.text("Motivation Disabled");
+    btn.text("Extra Motivation Disabled");
     btn.addClass('unmotivated');
     btn.removeClass('motivated');
+  } else {
+    vid.prop('muted', false)
+    btn.text("Extra Motivation Enabled");
+    btn.addClass('motivated');
+    btn.removeClass('unmotivated');
   }
 }
 
-// var positionMath = parseInt($("li.flex-box.flex-box").prev().attr("data-pos"))+parseInt($("li.flex-box.flex-box").next().attr("data-pos"));
-// positionMath / 2
 function newTaskItem() {
 
 }
+
+var videos = {
+  JustDoIt: "ShiaLabeouf",
+  LesBrown: "LesBrown",
+  JimCarrey: "JimCarrey",
+  ProveThemWrong: "ProveThemWrong",
+}
+
+

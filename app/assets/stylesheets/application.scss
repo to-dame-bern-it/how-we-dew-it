@@ -16,10 +16,10 @@
 @import "bourbon";
 @import "base/base";
 @import "neat";
-@import "refills/textures";
 @import "refills/flex-boxes";
 @import "refills/flashes";
 @import "refills/badges";
+@import "refills/dropdown";
 
 
 $mdlogogreen: #013a19;
@@ -63,16 +63,28 @@ video#bgvid {
     background-size: cover;
 }
 
-.videoVolumeBtn {
+.floatBtn {
   position: fixed;
   top: 1em;
   right: 1em;
-  -webkit-box-shadow: -1px 4px 10px 1px rgba(0,0,0,0.25);
-  -moz-box-shadow: -1px 4px 10px 1px rgba(0,0,0,0.25);
-  box-shadow: -1px 4px 10px 1px rgba(0,0,0,0.25);
-  button {
-    border-radius: 0;
+
+  div {
+    -webkit-box-shadow: -1px 4px 10px 1px rgba(0,0,0,0.25);
+    -moz-box-shadow: -1px 4px 10px 1px rgba(0,0,0,0.25);
+    box-shadow: -1px 4px 10px 1px rgba(0,0,0,0.25);
+    float: right;
+    clear: both;
+
+    button {
+      border-radius: 0;
+    }
+
+
   }
+  .extraMotivation{
+    margin-top: 1em;
+  }
+
 }
 
 $motivated: #459B54;
