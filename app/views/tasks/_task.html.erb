@@ -1,11 +1,15 @@
 <li class="flex-box flex-box-big draggable task" data-id="<%= task.id %>" id="task[<%= task.id %>]">
-  <span class="task-left-header">
-    <%= task.status.name %>
-  </span>
+  <% if task.status %>
+    <span class="task-left-header">
+      <%= task.status.name %>
+    </span>
+  <% end %>
   <span class="task-main">
     <h2 class="flex-title"><%= task.name %><span class="task-due-at"> due in <%= distance_of_time_in_words(Time.now, task.due_at) %></span></h2>
     <p><%= task.description %></p>
-    <span class="category-badge"><%= task.category.name %></span>
+    <% if task.category %>
+      <span class="category-badge"><%= task.category.name %></span>
+    <% end %>
   </span>
   <span class="task-right-header">
     <button class="todone"><i class="fa fa-check"></i></button>
