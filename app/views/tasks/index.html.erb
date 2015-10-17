@@ -28,8 +28,13 @@
   <h1>All Tasks</h1>
     <ul class="flex-boxes tasklist">
       <%= render @tasks %>
+
     </ul>
   <br>
 <% end %>
 
 <%= link_to 'New Task', class: "new-task" %>
+
+<% if logged_in? %>
+  <p><%=link_to 'log out', logout_path, method: :delete  %></p>
+<% end %>
