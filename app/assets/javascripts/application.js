@@ -50,6 +50,7 @@ ready = function(){
     $.ajax('#editClick')
       alert( "Just checking if this works." );
   });
+
 }
 
 set_positions = function(){

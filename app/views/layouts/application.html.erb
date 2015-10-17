@@ -32,9 +32,11 @@
       </div>
     </div>
 
-    <div class="hideTasks" style="float: left;">
-      <button class="unmotivated">Hide Tasks</button>
-    </div>
+    <% if logged_in? %>
+      <div class="hideTasks" style="float: left;">
+        <button class="unmotivated">Hide Tasks</button>
+      </div>
+    <% end %>
 
   </div>
 
