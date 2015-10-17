@@ -46,8 +46,8 @@ ready = function(){
   });
   set_positions();
 
-  $.ajax( "#editClick" ).mousedown(function() {
-
+  $("#editClick" ).mouseup.mousedown(function() {
+    $.ajax('#editClick')
       alert( "Just checking if this works." );
   });
 }
