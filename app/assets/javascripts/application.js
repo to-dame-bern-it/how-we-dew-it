@@ -46,10 +46,10 @@ ready = function(){
   });
   set_positions();
 
-  $.ajax( "#editClick" ).mousedown(function() {
+  // $.ajax( "#editClick" ).mousedown(function() {
 
-      alert( "Just checking if this works." );
-  });
+  //     alert( "Just checking if this works." );
+  // });
 }
 
 set_positions = function(){
