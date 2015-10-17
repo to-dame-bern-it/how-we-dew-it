@@ -35,7 +35,6 @@ gem 'font-awesome-rails'
 # gem 'unicorn'
 gem 'puma'
 
-gem 'rails-footnotes', '~> 4.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -48,6 +47,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry'
   gem 'sqlite3'
+  gem 'rails-footnotes', '~> 4.0'
 end
 
 group :development do
