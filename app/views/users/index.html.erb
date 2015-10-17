@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+<p id="alert"><%= alert %></p>
+
+
+<h1>Listing Users</h1>
+
+
+<% @users.each do |user| %>
+  <h3><%= user.name %> | <%= user.email %></h3>
+      <th colspan="3"></th>
+  <tbody>
+      <tr>
+        <td><%= user.password %></td>
+        <td><%= link_to 'Info', user %></td>
+        <td><%= link_to 'Edit Info', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy Account', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  </tbody>
+
+  <p>
+  <th colspan="5"></th>
+  <% user.tasks.each do |student| %>
+  <tbody>
+    <tr>
+      <th>Name:</th>
+      <td><%= user.name %></td>
+      <th>Email:</th>
+      <td><%= user.email %></td>
+    <p>
+      <td><%= link_to 'Add Task', new_task_path %></td>
+      <td><%= link_to 'Show', task_path %></td>
+      <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </p>
+    </tr>
+  </tbody>
+</p>
+  <br>
+  <% end %>
+<% end %>
+
+
+  <%= link_to 'New User', new_user_path %>| <%= link_to 'Logout', login_path, method: "delete" %>
