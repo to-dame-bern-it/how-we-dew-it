@@ -140,6 +140,9 @@ button.todone {
 .task-main{
   @include reset-display;
   @include span-columns(8);
+  float: inherit;
+
+
 }
 
 .task-right-header {
@@ -148,4 +151,11 @@ button.todone {
 
 
 
+#new-task-form {
+  ul {
+    form {
+      width: 100%;
+    }
+  }
+}
 
