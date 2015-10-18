@@ -17,15 +17,18 @@
 //= require_tree .
 //= require tasks
 //= require refills/dropdown
+//= require jquery.datetimepicker.full.min
 
 
 
 $(function() {
   ready();
+
 });
 
 $(document).ready(function() {
   $(".hideTasks").children("button").on("click", function() { toggleTaskListVisibility(); });
+
 });
 
 var ready, set_positions;

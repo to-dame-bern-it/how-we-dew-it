@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, placeholder: "(optional)" %>
   </div>
   <div class="field">
     <%= f.label :due_at %><br>
@@ -29,11 +29,11 @@
   </div>
   <div class="field">
     <%= f.label :category_id %><br>
-    <%= f.number_field :category_id %>
+    <%= f.collection_select :category_id, @current_user.categories, :id, :name %>
   </div>
   <div class="field">
     <%= f.label :status_id %><br>
-    <%= f.number_field :status_id %>
+    <%= f.collection_select :status_id, @current_user.statuses, :id, :name %>
   </div>
   <div class="actions">
     <%= f.submit %>

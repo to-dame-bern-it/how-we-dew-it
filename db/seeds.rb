@@ -11,22 +11,28 @@ Category.destroy_all
 Status.destroy_all
 Task.destroy_all
 
-["Personal", "Work", "Family"].each do |c|
-  Category.create!(
-    name: c,
-    #user_id:
-  )
-end
 
-["Todo", "Doing", "Done", "One Day"].each do |s|
-  Status.create!(
-    name: s,
-    color: Faker::Commerce.color
-  )
-end
 
 bernie = User.create!(name: "Bernie Mac", email: "bernie@caddy.com", password: "bernie")
 jackie = User.create!(name: "Jackie Chan", email: "jackie@stuntman.com", password: "jackie")
+
+User.all.each do |u|
+  ["Personal", "Work", "Family"].each do |c|
+    Category.create!(
+      name: c,
+      color: Faker::Commerce.color,
+      user_id: u.id
+    )
+  end
+
+  ["Todo", "Doing", "Done", "One Day"].each do |s|
+    Status.create!(
+      name: s,
+      color: Faker::Commerce.color,
+      user_id: u.id
+    )
+  end
+end
 
 categories = Category.all
 statuses = Status.all
