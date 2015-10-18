@@ -96,7 +96,7 @@ function newTaskItem() {
 }
 
 var videos = {
-  JustDoIt: "ShiaLabeouf",
+  JustDoIt: "ShiaLaBeouf",
   LesBrown: "LesBrown",
   JimCarrey: "JimCarrey",
   ProveThemWrong: "ProveThemWrong",
