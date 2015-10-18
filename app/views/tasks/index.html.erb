@@ -1,17 +1,16 @@
 <p id="notice"><%= notice %></p>
 
+<h1>All Tasks</h1>
+<%= link_to 'New Task', new_task_path, class: "new-task", remote: true %>
 
+<div id="new-task-form">
+</div>
 
 <% if @tasks.any? %>
-  <h1>All Tasks</h1>
-    <ul class="flex-boxes tasklist">
-      <%= render @tasks %>
-
-    </ul>
-  <br>
+  <ul class="flex-boxes tasklist">
+    <%= render @tasks %>
+  </ul>
 <% end %>
-
-<%= link_to 'New Task', class: "new-task" %>
 
 <% if logged_in? %>
   <p><%=link_to 'log out', logout_path, method: :delete  %></p>

@@ -37,6 +37,7 @@ body {
 main {
   @include outer-container;
   padding: 0.25em 1em;
+  margin-top: 3em;
 }
 
 .sortable-placeholder {
