@@ -13,16 +13,14 @@ class TasksControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
-    get :new
+    xhr :get, :new, :format => "js"
     assert_response :success
   end
 
   test "should create task" do
     assert_difference('Task.count') do
-      post :create, task: { category_id: @task.category_id, description: @task.description, due_at: @task.due_at, name: @task.name, owner_task_id: @task.owner_task_id, position: @task.position, status_id: @task.status_id, user_id: @task.user_id }
+      xhr :post, :create, :format => "js", task: { category_id: @task.category_id, description: @task.description, due_at: @task.due_at, name: @task.name, owner_task_id: @task.owner_task_id, position: @task.position, status_id: @task.status_id, user_id: @task.user_id }
     end
-
-    assert_redirected_to task_path(assigns(:task))
   end
 
   test "should show task" do
