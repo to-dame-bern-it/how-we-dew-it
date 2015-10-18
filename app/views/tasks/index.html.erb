@@ -6,7 +6,8 @@
 <div id="new-task-form">
 </div>
 
-<% if @tasks.any? %>
+
+<% if @current_user && @tasks.any? %>
   <ul class="flex-boxes tasklist">
     <%= render @tasks %>
   </ul>
