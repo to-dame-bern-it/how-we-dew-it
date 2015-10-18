@@ -11,8 +11,8 @@ class TasksController < ApplicationController
 
   # GET /tasks
   def index
-    @tasks = Task.all
-    @task = Task.new
+    @tasks = Task.where(user_id: @current_user.id)
+    @task = Task.new(user_id: @current_user.id)
   end
 
   # GET /tasks/1

@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :current_user, only: [:show, :edit, :update, :destroy]
   before_action :logged_in?
-  #before_action :deny_access
 
   def index
     @users = User.all
