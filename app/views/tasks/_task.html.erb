@@ -1,4 +1,5 @@
-<li id="editClick", class="flex-box flex-box-big draggable task" data-id="<%= task.id %>" id="task[<%= task.id %>]">
+<%# Keep in-sync with _form.html.erb  %>
+<li class="edit-click flex-box flex-box-big draggable task" data-id="<%= task.id %>" id="task[<%= task.id %>]">
   <% if task.status %>
     <span class="task-left-header">
       <%= task.status.name %>

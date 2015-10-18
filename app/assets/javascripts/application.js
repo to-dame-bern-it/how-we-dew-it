@@ -46,10 +46,10 @@ ready = function(){
   });
   set_positions();
 
-  $("#editClick" ).mouseup.mousedown(function() {
-    $.ajax('#editClick')
-      alert( "Just checking if this works." );
-  });
+  // $("#editClick" ).mouseup.mousedown(function() {
+  //   $.ajax('#editClick')
+  //     alert( "Just checking if this works." );
+  // });
 
 }
 
@@ -78,13 +78,13 @@ function toggleVideoVolume(off) {
 function toggleTaskListVisibility() {
   var btn = $(event.target);
 
-  if(btn.text() == "Hide Tasks") {
-    btn.text("Show Tasks");
+  if(btn.text() == "Hide Content") {
+    btn.text("Show Content");
     $("main").toggle();
     btn.addClass('motivated');
     btn.removeClass('unmotivated');
   } else {
-    btn.text("Hide Tasks");
+    btn.text("Hide Content");
     $("main").toggle();
     btn.addClass('unmotivated');
     btn.removeClass('motivated');

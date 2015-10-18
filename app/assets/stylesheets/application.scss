@@ -37,6 +37,7 @@ body {
 main {
   @include outer-container;
   padding: 0.25em 1em;
+  margin-top: 3em;
 }
 
 .sortable-placeholder {
@@ -65,8 +66,8 @@ video#bgvid {
 
 .floatBtns {
   position: fixed;
-  top: 1em;
-  right: 1em;
+  top: 0em;
+  right: .5em;
   width: 100%;
 
   div {
@@ -79,8 +80,10 @@ video#bgvid {
     button {
       border-radius: 0;
     }
+  }
 
-
+  div.hideTasks {
+    float: left;
   }
 
   div.dropdown {
@@ -143,10 +146,6 @@ button.todone {
   @include span-columns(2);
 }
 
-.hideTasks {
-  position: fixed;
-  left: 1em;
-  top: 1em;
-}
+
 
 

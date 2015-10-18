@@ -11,8 +11,7 @@ class TasksController < ApplicationController
 
   # GET /tasks
   def index
-    @tasks = Task.all
-    @task = Task.new
+    @tasks = Task.where(user_id: @current_user.id)
   end
 
   # GET /tasks/1
@@ -31,12 +30,14 @@ class TasksController < ApplicationController
   # POST /tasks
   def create
     @task = Task.new(task_params)
+    @task.user_id = @current_user.id
+    @task.save
 
-    if @task.save
-      redirect_to @task, notice: 'Task was successfully created.'
-    else
-      render :new
-    end
+    # if @task.save
+    #   redirect_to @task, notice: 'Task was successfully created.'
+    # else
+    #   render :new
+    # end
   end
 
   # PATCH/PUT /tasks/1
