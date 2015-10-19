@@ -14,5 +14,5 @@
     <% end %>
   </span>
   <% if task.status && task.status.name != "Done" %>
-    <button class="completeTask"><i class="fa fa-check"></i></button>
+    <button class="completeTask" onclick="completeTaskBtn();"><i class="fa fa-check"></i></button>
   <% end %>

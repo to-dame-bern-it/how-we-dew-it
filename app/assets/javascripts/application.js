@@ -41,7 +41,21 @@ $(document).ready(function() {
     });
   });
 
+  $('.completeTaskBtn').on("click", function() {
+    completeTaskBtn();
+  });
+
+
 });
+
+function completeTaskBtn() {
+  var taskId = $(event.target).closest(".task").attr("data-id");
+  $.ajax({
+    type: "PATCH",
+    url: '/tasks/'+taskId,
+    data: { task: {status_id: "3"} }
+  });
+}
 
 var ready, set_positions;
 ready = function(){
@@ -124,6 +138,7 @@ var videos = {
   RockyBalboa: "RockyBalboa",
   MattFoley: "MattFoley"
 }
+
 
 
 
