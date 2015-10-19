@@ -22,6 +22,7 @@
 
 $(document).ready(function() {
   ready();
+  $("#new-task-form").hide();
   $(".hideTasks").children("button").on("click", function() {
     toggleTaskListVisibility();
   });

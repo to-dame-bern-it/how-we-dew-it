@@ -21,10 +21,36 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
+      ["Personal", "Work", "Family"].each do |c|
+      Category.create(
+        name: c,
+        color: "#{rand(120..255)},#{rand(120..255)},#{rand(120..255)}",
+        user_id: @user.id
+        )
+      end
+
+      ["Todo", "Doing", "Done", "One Day"].each do |s|
+        Status.create(
+          name: s,
+          color: "#{rand(120..255)},#{rand(120..255)},#{rand(120..255)}",
+          user_id: @user.id
+        )
+      end
+
+      Task.create(
+        user_id: @user.id,
+        name: "My first task!",
+        description: "We deserve much cookie",
+        due_at: Faker::Time.between(DateTime.now + 10, DateTime.now),
+        status_id: @user.statuses.first.id,
+        category_id: @user.categories.first.id,
+       )
       redirect_to tasks_path, notice: 'User was successfully created.'
     else
       render :new
     end
+
+
   end
 
   def update
