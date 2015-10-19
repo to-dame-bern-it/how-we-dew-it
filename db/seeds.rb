@@ -20,7 +20,7 @@ User.all.each do |u|
   ["Personal", "Work", "Family"].each do |c|
     Category.create!(
       name: c,
-      color: Faker::Commerce.color,
+      color: "#{rand(120..255)},#{rand(120..255)},#{rand(120..255)}",
       user_id: u.id
     )
   end
@@ -28,24 +28,24 @@ User.all.each do |u|
   ["Todo", "Doing", "Done", "One Day"].each do |s|
     Status.create!(
       name: s,
-      color: Faker::Commerce.color,
+      color: "#{rand(120..255)},#{rand(120..255)},#{rand(120..255)}",
       user_id: u.id
+    )
+  end
+
+  categories = u.categories
+  statuses = u.statuses
+  50.times do
+    Task.create!(
+      #owner_task_id: ,
+      user_id: u.id,
+      name: Faker::Lorem.sentence,
+      description: Faker::Lorem.paragraph,
+      due_at: Faker::Time.between(DateTime.now - 10, DateTime.now),
+      position: rand(1..10.0),
+      category_id: categories.sample.id,
+      status_id: statuses.sample.id
     )
   end
 end
 
-categories = Category.all
-statuses = Status.all
-users = User.all
-100.times do
-  Task.create!(
-    #owner_task_id: ,
-    user_id: users.sample.id,
-    name: Faker::Lorem.sentence,
-    description: Faker::Lorem.paragraph,
-    due_at: Faker::Time.between(DateTime.now - 10, DateTime.now),
-    position: rand(1..10.0),
-    category_id: categories.sample.id,
-    status_id: statuses.sample.id
-  )
-end

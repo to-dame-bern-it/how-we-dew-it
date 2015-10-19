@@ -9,10 +9,21 @@
 
 <% if @current_user && @tasks.any? %>
   <ul class="flex-boxes tasklist">
-    <%= render @tasks %>
+    <% @tasks.each do |task| %>
+    <% rgbvalues = "" %>
+    <% rgbvalues = task.category.color.match(/(\d{1,3}),(\d{1,3}),(\d{1,3})/) if task.category.color %>
+      <li class="flex-box flex-box-big draggable task" data-id="<%= task.id %>" id="task-<%= task.id %>"
+      style="
+        border-top: 6px solid rgb(<%= "#{rgbvalues[1]},#{rgbvalues[2]},#{rgbvalues[3]}" %>);
+        background-color: rgba( <%= "#{rgbvalues[1].to_i+20},#{rgbvalues[2].to_i+20},#{rgbvalues[3].to_i+20}" %>, 0.8 );"
+      >
+      <%= render task %>
+    </li>
+    <% end %>
   </ul>
 <% end %>
 
 <% if logged_in? %>
   <p><%=link_to 'log out', logout_path, method: :delete  %></p>
 <% end %>
+

@@ -20,14 +20,26 @@
 //= require jquery.datetimepicker.full.min
 
 
-
-$(function() {
-  ready();
-
-});
-
 $(document).ready(function() {
-  $(".hideTasks").children("button").on("click", function() { toggleTaskListVisibility(); });
+  ready();
+  $(".hideTasks").children("button").on("click", function() {
+    toggleTaskListVisibility();
+  });
+
+  $(".task").on("click", function() {
+
+    if(event.target != this) return;
+
+    if($(this).hasClass("editing")){
+      return false;
+    }
+    $(this).addClass("editing");
+    var taskId = $(this).closest(".task").attr("data-id");
+    $.ajax({
+      type: "GET",
+      url: '/tasks/'+taskId+'/edit'
+    });
+  });
 
 });
 
@@ -48,6 +60,14 @@ ready = function(){
     });
   });
   set_positions();
+
+
+
+  // $('.color').colorPicker({
+  //   animationSpeed: 150, // toggle animation speed
+  //   GPU: true, // use transform: translate3d
+  //   opacity: false,
+  // });
 
   // $("#editClick" ).mouseup.mousedown(function() {
   //   $.ajax('#editClick')
@@ -94,9 +114,6 @@ function toggleTaskListVisibility() {
   }
 }
 
-function newTaskItem() {
-
-}
 
 var videos = {
   JustDoIt: "ShiaLaBeouf",
@@ -107,3 +124,6 @@ var videos = {
   RockyBalboa: "RockyBalboa",
   MattFoley: "MattFoley"
 }
+
+
+

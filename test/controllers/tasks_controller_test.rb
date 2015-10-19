@@ -29,18 +29,18 @@ class TasksControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    get :edit, id: @task
+    xhr :get, :edit, id: @task
     assert_response :success
   end
 
   test "should update task" do
-    patch :update, id: @task, task: { category_id: @task.category_id, description: @task.description, due_at: @task.due_at, name: @task.name, owner_task_id: @task.owner_task_id, position: @task.position, status_id: @task.status_id, user_id: @task.user_id }
+    xhr :patch, :update, id: @task, task: { category_id: @task.category_id, description: @task.description, due_at: @task.due_at, name: @task.name, owner_task_id: @task.owner_task_id, position: @task.position, status_id: @task.status_id, user_id: @task.user_id }
     assert_redirected_to task_path(assigns(:task))
   end
 
   test "should destroy task" do
     assert_difference('Task.count', -1) do
-      delete :destroy, id: @task
+      xhr :delete, :destroy, id: @task
     end
 
     assert_redirected_to tasks_path

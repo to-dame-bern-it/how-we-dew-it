@@ -25,6 +25,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
+    @task = Task.find(params[:id])
   end
 
   # POST /tasks
@@ -32,31 +33,34 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.user_id = @current_user.id
     if @task.save
-      params[notice] = "Task successfully created"
+      respond_to do |format|
+        format.js {   }
+      end
     else
-
+      # Noooooo
     end
-
-    # if @task.save
-    #   redirect_to @task, notice: 'Task was successfully created.'
-    # else
-    #   render :new
-    # end
   end
 
   # PATCH/PUT /tasks/1
   def update
     if @task.update(task_params)
-      redirect_to @task, notice: 'Task was successfully updated.'
+      respond_to do |format|
+        format.js {   }
+      end
     else
-      render :edit
+      # whaaaa
     end
   end
 
   # DELETE /tasks/1
   def destroy
-    @task.destroy
-    redirect_to tasks_url, notice: 'Task was successfully destroyed.'
+    if @task.destroy
+      respond_to do |format|
+        format.js {   }
+      end
+    else
+      # whaaaa
+    end
   end
 
   private

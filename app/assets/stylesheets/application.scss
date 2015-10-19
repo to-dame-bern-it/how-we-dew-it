@@ -20,6 +20,7 @@
 @import "refills/flashes";
 @import "refills/badges";
 @import "refills/dropdown";
+@import "jquery.datetimepicker";
 
 
 $mdlogogreen: #013a19;
@@ -157,5 +158,9 @@ button.todone {
       width: 100%;
     }
   }
+}
+
+button.completeTask {
+  float: right;
 }
 

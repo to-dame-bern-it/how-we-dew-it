@@ -1,0 +1,7 @@
+$('#task-<%= @task.id %>').html("<%= j(render 'form') %>");
+
+$('.due-at').datetimepicker({
+  format: 'd-m-Y g:i A',
+  inline: true,
+  lang:'en'
+});

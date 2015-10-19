@@ -1,6 +1,11 @@
-$.datetimepicker.setLocale('en');
-$('#id_of_the_input_text').datetimepicker({
-  formatTime:'g:i A',
-  format: 'd/m/Y h:i A',
+$('.due-at').datetimepicker({
+  format: 'd-m-Y g:i A',
+  inline: true,
+  lang:'en'
 });
-$('.color').colorPicker();
+
+$('.color').colorPicker({
+  animationSpeed: 150, // toggle animation speed
+  GPU: true, // use transform: translate3d
+  opacity: false,
+});

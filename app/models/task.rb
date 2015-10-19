@@ -4,6 +4,6 @@ class Task < ActiveRecord::Base
   belongs_to :category
   default_scope { order("position ASC") }
 
-  validates :name, presence: true
+  # validates :name, presence: true
 
 end
