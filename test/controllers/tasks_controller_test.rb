@@ -35,14 +35,12 @@ class TasksControllerTest < ActionController::TestCase
 
   test "should update task" do
     xhr :patch, :update, id: @task, task: { category_id: @task.category_id, description: @task.description, due_at: @task.due_at, name: @task.name, owner_task_id: @task.owner_task_id, position: @task.position, status_id: @task.status_id, user_id: @task.user_id }
-    assert_redirected_to task_path(assigns(:task))
+    assert_response :success
   end
 
   test "should destroy task" do
     assert_difference('Task.count', -1) do
       xhr :delete, :destroy, id: @task
     end
-
-    assert_redirected_to tasks_path
   end
 end

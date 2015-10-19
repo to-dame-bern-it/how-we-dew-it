@@ -13,6 +13,6 @@
       <span class="category-badge" style="background-color: rgb(<%= "#{rgbvalues[1]}, #{rgbvalues[2]}, #{rgbvalues[3]}" %>);"><%= task.category.name %></span>
     <% end %>
   </span>
-  <% if task.status.name != "Done" %>
+  <% if task.status && task.status.name != "Done" %>
     <button class="completeTask"><i class="fa fa-check"></i></button>
   <% end %>
