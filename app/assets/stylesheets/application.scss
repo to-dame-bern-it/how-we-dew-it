@@ -16,10 +16,11 @@
 @import "bourbon";
 @import "base/base";
 @import "neat";
-@import "refills/textures";
 @import "refills/flex-boxes";
 @import "refills/flashes";
 @import "refills/badges";
+@import "refills/dropdown";
+@import "jquery.datetimepicker";
 
 
 $mdlogogreen: #013a19;
@@ -37,6 +38,7 @@ body {
 main {
   @include outer-container;
   padding: 0.25em 1em;
+  margin-top: 3em;
 }
 
 .sortable-placeholder {
@@ -63,16 +65,34 @@ video#bgvid {
     background-size: cover;
 }
 
-.videoVolumeBtn {
+.floatBtns {
   position: fixed;
-  top: 1em;
-  right: 1em;
-  -webkit-box-shadow: -1px 4px 10px 1px rgba(0,0,0,0.25);
-  -moz-box-shadow: -1px 4px 10px 1px rgba(0,0,0,0.25);
-  box-shadow: -1px 4px 10px 1px rgba(0,0,0,0.25);
-  button {
-    border-radius: 0;
+  top: 0em;
+  right: .5em;
+  width: 100%;
+
+  div {
+    -webkit-box-shadow: -1px 4px 10px 1px rgba(0,0,0,0.25);
+    -moz-box-shadow: -1px 4px 10px 1px rgba(0,0,0,0.25);
+    box-shadow: -1px 4px 10px 1px rgba(0,0,0,0.25);
+    float: right;
+    margin: 0em .2em;
+
+    button {
+      border-radius: 0;
+    }
   }
+
+  div.hideTasks {
+    float: left;
+  }
+
+  div.dropdown {
+    -webkit-box-shadow: 0 0 0 0;
+    -moz-box-shadow: 0 0 0 0;
+    box-shadow: 0 0 0 0;
+  }
+
 }
 
 $motivated: #459B54;
@@ -121,10 +141,26 @@ button.todone {
 .task-main{
   @include reset-display;
   @include span-columns(8);
+  float: inherit;
+
+
 }
 
 .task-right-header {
   @include span-columns(2);
 }
 
+
+
+#new-task-form {
+  ul {
+    form {
+      width: 100%;
+    }
+  }
+}
+
+button.completeTask {
+  float: right;
+}
 

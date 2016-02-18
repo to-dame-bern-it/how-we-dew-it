@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
-  root 'tasks#index'
+  delete 'logout' => 'sessions#destroy'
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+
+  root 'sessions#new'
+
+  resources :users
+
+  get 'tasks/index'
   resources :tasks do
     put :sort, on: :collection
   end

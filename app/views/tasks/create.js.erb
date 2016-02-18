@@ -1,0 +1,4 @@
+$(".tasklist").prepend("<li class=\"flex-box flex-box-big task draggable\"><%= j(render @task) %><\/li>");
+$("#new-task-form").html("");
+$("#new-task-form").hide();
+window.scrollTo(0,0);

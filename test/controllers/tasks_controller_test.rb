@@ -3,6 +3,7 @@ require 'test_helper'
 class TasksControllerTest < ActionController::TestCase
   setup do
     @task = tasks(:one)
+    session[:user_id] = users(:one).id
   end
 
   test "should get index" do
@@ -12,16 +13,14 @@ class TasksControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
-    get :new
+    xhr :get, :new, :format => "js"
     assert_response :success
   end
 
   test "should create task" do
     assert_difference('Task.count') do
-      post :create, task: { category_id: @task.category_id, description: @task.description, due_at: @task.due_at, name: @task.name, owner_task_id: @task.owner_task_id, position: @task.position, status_id: @task.status_id, user_id: @task.user_id }
+      xhr :post, :create, :format => "js", task: { category_id: @task.category_id, description: @task.description, due_at: @task.due_at, name: @task.name, owner_task_id: @task.owner_task_id, position: @task.position, status_id: @task.status_id, user_id: @task.user_id }
     end
-
-    assert_redirected_to task_path(assigns(:task))
   end
 
   test "should show task" do
@@ -30,20 +29,18 @@ class TasksControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    get :edit, id: @task
+    xhr :get, :edit, id: @task
     assert_response :success
   end
 
   test "should update task" do
-    patch :update, id: @task, task: { category_id: @task.category_id, description: @task.description, due_at: @task.due_at, name: @task.name, owner_task_id: @task.owner_task_id, position: @task.position, status_id: @task.status_id, user_id: @task.user_id }
-    assert_redirected_to task_path(assigns(:task))
+    xhr :patch, :update, id: @task, task: { category_id: @task.category_id, description: @task.description, due_at: @task.due_at, name: @task.name, owner_task_id: @task.owner_task_id, position: @task.position, status_id: @task.status_id, user_id: @task.user_id }
+    assert_response :success
   end
 
   test "should destroy task" do
     assert_difference('Task.count', -1) do
-      delete :destroy, id: @task
+      xhr :delete, :destroy, id: @task
     end
-
-    assert_redirected_to tasks_path
   end
 end

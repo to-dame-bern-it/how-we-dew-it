@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+<p id="alert"><%= alert %></p>
+
+<h1>Users</h1>
+<%= link_to 'New User', new_user_path, class: "new-user", remote: true %>
+
+<div id="new-user-form">
+</div>
+
+
+<% if @tasks && @tasks.any? %>
+  <ul class="flex-boxes userinfo">
+    <%= render @users %>
+  </ul>
+<% end %>
+
+<% @users.each do |user| %>
+  <h3><%= user.name %> | <%= user.email %></h3>
+      <th colspan="3"></th>
+  <tbody>
+      <tr>
+        <td><%= user.password %></td>
+        <td><%= link_to 'Info', user %></td>
+        <td><%= link_to 'Edit Info', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy Account', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  </tbody>
+
+  <p>
+  <th colspan="3"></th>
+  <% user.tasks.each do |task| %>
+  <tbody>
+    <tr>
+      <th>Name:</th>
+      <td><%= task.name %></td>
+    <p>
+      <td><%= link_to 'Add Task', new_task_path %></td>
+      <td><%= link_to 'Show', task_path %></td>
+      <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </p>
+    </tr>
+  </tbody>
+</p>
+  <br>
+  <% end %>
+<% end %>
+
+  <%= link_to 'New User', new_user_path %>| <%= link_to 'Logout', login_path, method: "delete" %>

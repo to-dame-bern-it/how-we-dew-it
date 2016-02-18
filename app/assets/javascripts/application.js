@@ -16,10 +16,47 @@
 //= require html.sortable.min
 //= require_tree .
 //= require tasks
+//= require refills/dropdown
+//= require jquery.datetimepicker.full.min
 
-$(function() {
+
+$(document).ready(function() {
   ready();
+  $("#new-task-form").hide();
+  $(".hideTasks").children("button").on("click", function() {
+    toggleTaskListVisibility();
+  });
+
+  $(".task").on("click", function() {
+
+    if(event.target != this) return;
+
+    if($(this).hasClass("editing")){
+      return false;
+    }
+    $(this).addClass("editing");
+    var taskId = $(this).closest(".task").attr("data-id");
+    $.ajax({
+      type: "GET",
+      url: '/tasks/'+taskId+'/edit'
+    });
+  });
+
+  $('.completeTaskBtn').on("click", function() {
+    completeTaskBtn();
+  });
+
+
 });
+
+function completeTaskBtn() {
+  var taskId = $(event.target).closest(".task").attr("data-id");
+  $.ajax({
+    type: "PATCH",
+    url: '/tasks/'+taskId,
+    data: { task: {status_id: "3"} }
+  });
+}
 
 var ready, set_positions;
 ready = function(){
@@ -38,6 +75,20 @@ ready = function(){
     });
   });
   set_positions();
+
+
+
+  // $('.color').colorPicker({
+  //   animationSpeed: 150, // toggle animation speed
+  //   GPU: true, // use transform: translate3d
+  //   opacity: false,
+  // });
+
+  // $("#editClick" ).mouseup.mousedown(function() {
+  //   $.ajax('#editClick')
+  //     alert( "Just checking if this works." );
+  // });
+
 }
 
 set_positions = function(){
@@ -46,24 +97,49 @@ set_positions = function(){
   });
 }
 
-function toggleVideoVolume() {
+function toggleVideoVolume(off) {
   vid = $('#bgvid');
-  btn = $(".videoVolumeBtn").children("button");
-  if(vid.prop('muted') == true){
+  btn = $(".extraMotivation").children("button");
+  if(vid.prop('muted') == false || off == true){
+    vid.prop('muted', true)
+    btn.text("Extra Motivation Disabled");
+    btn.addClass('unmotivated');
+    btn.removeClass('motivated');
+  } else {
     vid.prop('muted', false)
-    btn.text("Motivation Enabled");
+    btn.text("Extra Motivation Enabled");
+    btn.addClass('motivated');
+    btn.removeClass('unmotivated');
+  }
+}
+
+function toggleTaskListVisibility() {
+  var btn = $(event.target);
+
+  if(btn.text() == "Hide Content") {
+    btn.text("Show Content");
+    $("main").toggle();
     btn.addClass('motivated');
     btn.removeClass('unmotivated');
   } else {
-    vid.prop('muted', true)
-    btn.text("Motivation Disabled");
+    btn.text("Hide Content");
+    $("main").toggle();
     btn.addClass('unmotivated');
     btn.removeClass('motivated');
   }
 }
 
-// var positionMath = parseInt($("li.flex-box.flex-box").prev().attr("data-pos"))+parseInt($("li.flex-box.flex-box").next().attr("data-pos"));
-// positionMath / 2
-function newTaskItem() {
 
+var videos = {
+  JustDoIt: "ShiaLaBeouf",
+  LesBrown: "LesBrown",
+  JimCarrey: "JimCarrey",
+  ProveThemWrong: "ProveThemWrong",
+  KidPresident: "KidPresident",
+  RockyBalboa: "RockyBalboa",
+  MattFoley: "MattFoley"
 }
+
+
+
+

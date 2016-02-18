@@ -2,7 +2,7 @@
 
 one:
   owner_task_id:
-  user_id:
+  user_id: 1
   name: MyString
   description: MyText
   due_at: 2015-10-15 17:38:37
@@ -12,7 +12,7 @@ one:
 
 two:
   owner_task_id:
-  user_id:
+  user_id: 1
   name: MyString
   description: MyText
   due_at: 2015-10-15 17:38:37
